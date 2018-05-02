@@ -1,0 +1,56 @@
+#!/bin/bash
+
+clear
+figlet WIFI-RELOADED
+echo "--------------------------------------------------------------------------------"
+echo "Full Auto Activated"
+sleep 1
+clear
+figlet WIFI-RELOADED
+echo "--------------------------------------------------------------------------------"
+airmon-ng
+echo "--------------------------------------------------------------------------------"
+read -p "Select The Wireless Interface You Want To Use: " monInterfacestart
+clear
+figlet WIFI-RELOADED
+echo "--------------------------------------------------------------------------------"
+airmon-ng start $monInterfacestart
+clear
+figlet WIFI-RELOADED
+echo "--------------------------------------------------------------------------------"
+airmon-ng
+echo "--------------------------------------------------------------------------------"
+read -p "What Is Your Monitor Interface: " monInterface
+clear
+figlet WIFI-RELOADED
+echo "--------------------------------------------------------------------------------"
+echo "Press CTRL-C To Stop"
+echo "3"
+sleep 1
+echo "2"
+sleep 1
+echo "1"
+sleep 1
+airodump-ng $monInterface
+echo "--------------------------------------------------------------------------------"
+read -p "What Is The BSSID: " bssid
+echo "--------------------------------------------------------------------------------"
+read -p "What Is The Channel: " channel
+clear
+figlet WIFI-reloaded
+echo "--------------------------------------------------------------------------------"
+read -p "Handshake CAP FIle Name: " fop
+clear
+figlet WIFI-RELOADED
+echo "--------------------------------------------------------------------------------"
+echo "Press CTRL-C To Stop"
+echo "3"
+sleep 1
+echo "2"
+sleep 1
+echo "1"
+sleep 1
+airodump-ng -c $channel -w Handshakes/$fop/$fop --bssid $bssid $monInterface
+echo "--------------------------------------------------------------------------------"
+echo "Handshake CAP File Saved To: WiFi-Reloaded/Handshakes/$fop/$fop-01.cap"
+echo "--------------------------------------------------------------------------------"

@@ -1,0 +1,12 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+C4:3D:C7:A2:43:E2, 2018-04-15 10:08:34, 2018-04-15 10:09:52,  6,  54, WPA2 WPA, CCMP TKIP,PSK, -60,      764,      136,   0.  0.  0.  0,   9, Mochi-Cat, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+80:EA:96:5D:33:CA, 2018-04-15 10:08:45, 2018-04-15 10:08:45, -47,        2, C4:3D:C7:A2:43:E2,
+B4:E6:2A:BA:28:AE, 2018-04-15 10:08:38, 2018-04-15 10:09:49, -83,        7, C4:3D:C7:A2:43:E2,
+84:C0:EF:D8:A9:37, 2018-04-15 10:08:51, 2018-04-15 10:09:51, -67,        3, C4:3D:C7:A2:43:E2,
+6C:19:C0:AC:22:33, 2018-04-15 10:08:58, 2018-04-15 10:09:35, -59,       19, C4:3D:C7:A2:43:E2,
+B4:F1:DA:B5:62:0D, 2018-04-15 10:08:49, 2018-04-15 10:09:49, -43,       25, C4:3D:C7:A2:43:E2,
+D0:DF:9A:2A:38:A1, 2018-04-15 10:08:36, 2018-04-15 10:09:48, -35,     1139, C4:3D:C7:A2:43:E2,
+

