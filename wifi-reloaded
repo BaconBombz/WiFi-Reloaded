@@ -1,20 +1,21 @@
 #!/bin/bash
 #Version: Alpha 3.0
-clear
+reset() {
+  clear
+  figlet WIFI-RELOADED
+  echo "--------------------------------------------------------------------------------"
+}
 
 #Title
-figlet WIFI-RELOADED
-echo "--------------------------------------------------------------------------------"
+reset
 echo "|Made by BaconBombz|Hosted on GitHub|"
 echo "--------------------------------------------------------------------------------"
 
 #Not Taking Responsibility
 read -p "Are you doing this on your own network? [yes/no]: " safety
-clear
 
 #Listing Options
-figlet WIFI-RELOADED
-echo "--------------------------------------------------------------------------------"
+reset
 
 if [ $safety == yes ]
 then
@@ -46,28 +47,20 @@ fi
 #Operation 1
 if [ $Operation == 1 ]
 then
-  clear
-  figlet WIFI-RELOADED
-  echo "--------------------------------------------------------------------------------"
+  reset
   read -p "Start Monitor Mode? [yes/no]: " monstart
   if [ $monstart == yes ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     echo "Interfaces: "
     echo "--------------------------------------------------------------------------------"
     airmon-ng
     echo "--------------------------------------------------------------------------------"
     read -p "What Interface Do You Want To Set As Monitor Mode? " monInterfacestart
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     airmon-ng start $monInterfacestart
     echo "--------------------------------------------------------------------------------"
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     echo "Interfaces: "
     echo "--------------------------------------------------------------------------------"
     airmon-ng
@@ -79,9 +72,7 @@ then
     fi
   elif  [ $monstart == no ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "Go Back? [yes/no]: " back
     if [ $back == yes ]
     then
@@ -93,28 +84,20 @@ fi
 #Operation 2
 if [ $Operation == 2 ]
 then
-  clear
-  figlet WIFI-RELOADED
-  echo "--------------------------------------------------------------------------------"
+  reset
   read -p "Stop Monitor Mode? [yes/no]: " monstop
   if [ $monstop == yes ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    resetreset
     echo "Interfaces: "
     echo "--------------------------------------------------------------------------------"
     airmon-ng
     echo "--------------------------------------------------------------------------------"
     read -p "What Interface Do You Want To Stop Being Monitor Mode? " monInterfacestop
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     airmon-ng stop $monInterfacestop
     echo "--------------------------------------------------------------------------------"
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     echo "Interfaces: "
     echo "--------------------------------------------------------------------------------"
     airmon-ng
@@ -126,9 +109,7 @@ then
     fi
   elif  [ $monstop == no ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "Go Back? [yes/no]: " back
     if [ $back == yes ]
     then
@@ -140,31 +121,21 @@ fi
 #Operation 3
 if [ $Operation == 3 ]
 then
-  clear
-  figlet WIFI-RELOADED
-  echo "--------------------------------------------------------------------------------"
+  reset
   read -p "Start Monitor Mode/Set Wireless Card To Monitor On a Specific Channel?  [yes/no]: " monChannel
   if [ $monChannel == yes ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     echo "Interfaces: "
     echo "--------------------------------------------------------------------------------"
     airmon-ng
     echo "--------------------------------------------------------------------------------"
     read -p "What Interface Do You Want To Set Monitor Mode/Set a Channel On? " monInterfaceChannel
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "What Channel Do You Want To Set Your Interface To? " monSetChannel
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     airmon-ng start $monInterfaceChannel $monSetChannel
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "Go Back? [yes/no]: " back
     if [ $back == yes ]
     then
@@ -172,9 +143,7 @@ then
     fi
   elif  [ $monChannel == no ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    resetreset
     read -p "Go Back? [yes/no]: " back
     if [ $back == yes ]
     then
@@ -186,21 +155,15 @@ fi
 #Operation 4
 if [ $Operation == 4 ]
 then
-  clear
-  figlet WIFI-RELOADED
-  echo "--------------------------------------------------------------------------------"
+  reset
   read -p "Start Monitoring Networks Around You? [yes/no]: " monNet
   if [ $monNet == yes ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     airmon-ng
     echo "--------------------------------------------------------------------------------"
     read -p "What is your Monitor Interface? " monInterfaceactive
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     echo "Press CTRL-C To Stop"
     echo "3"
     sleep 1
@@ -217,9 +180,7 @@ then
     fi
   elif  [ $monNet == no ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    resetreset
     read -p "Go Back? [yes/no]: " back
     if [ $back == yes ]
     then
@@ -231,34 +192,22 @@ fi
 #Operation 5
 if [ $Operation == 5 ]
 then
-  clear
-  figlet WIFI-RELOADED
-  echo "--------------------------------------------------------------------------------"
+  reset
   read -p "Capture Handshake? [yes/no]: " chstart
   if [ $chstart == yes ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "What Is The Channel? " wfch
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "File Output Name: " fop
     mkdir Handshakes/$fop
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "What Is The BSSID?: " bssidcap
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     airmon-ng
     echo "--------------------------------------------------------------------------------"
     read -p "What Is Your Monitor Interface? " monInterfacecap
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     echo "Press CTRL-C To Stop"
     echo "3"
     sleep 1
@@ -277,9 +226,7 @@ then
     fi
   elif  [ $chstart == no ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    resetreset
     read -p "Go Back? [yes/no]: " back
     if [ $back == yes ]
     then
@@ -291,33 +238,21 @@ fi
 #Operation 6
 if [ $Operation == 6 ]
 then
-  clear
-  figlet WIFI-RELOADED
-  echo "--------------------------------------------------------------------------------"
+  reset
   read -p "Send DeAuthentication Packets To 1 Device? [yes/no]: " sendDeAuthone
   if [ $sendDeAuthone == yes ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "What Is The BSSID of The Network?: " DeAuthBSSIDone
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "What Is The Mac Address of The Target?: " DeAuthMAC
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "How Many Packets Do You Want To Send? [0 For Infinite] " hmDeAuthp
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     airmon-ng
     echo "--------------------------------------------------------------------------------"
     read -p "What Is Your Monitor Interface? " monInterfaceDeAuth
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     echo "Press CTRL-C To Stop"
     echo "3"
     sleep 1
@@ -325,9 +260,7 @@ then
     sleep 1
     echo "1"
     sleep 1
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     aireplay-ng --deauth $hmDeAuthp -a $DeAuthBSSIDone -c $DeAuthMAC $monInterfaceDeAuth
     echo "--------------------------------------------------------------------------------"
     read -p "Go Back? [yes/no]: " back
@@ -337,9 +270,7 @@ then
     fi
   elif  [ $sendDeAuthone == no ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    resetreset
     read -p "Go Back? [yes/no]: " back
     if [ $back == yes ]
     then
@@ -351,29 +282,19 @@ fi
 #Operation 7
 if [ $Operation == 7 ]
 then
-  clear
-  figlet WIFI-RELOADED
-  echo "--------------------------------------------------------------------------------"
+  reset
   read -p "Send DeAuthentication Packets To ALL Devices? [yes/no]: " sendDeAuthall
   if [ $sendDeAuthall == yes ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "What Is The BSSID of The Access Point?: " DeAuthBSSID
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "How Many Packets Do You Want To Send (0 For Infinite)? " hmDeAuthpall
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     airmon-ng
     echo "--------------------------------------------------------------------------------"
     read -p "What Is Your Monitor Interface? " monInterfaceDeAuth
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     echo "Press CTRL-C To Stop"
     echo "3"
     sleep 1
@@ -381,9 +302,7 @@ then
     sleep 1
     echo "1"
     sleep 1
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     aireplay-ng -0 0$hmDeAuthpall -a $DeAuthBSSID $monInterfaceDeAuth
     echo "--------------------------------------------------------------------------------"
     read -p "Go Back? [yes/no]: " back
@@ -393,9 +312,7 @@ then
     fi
   elif  [ $sendDeAuthall == no ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "Go Back? [yes/no]: " back
     if [ $back == yes ]
     then
@@ -407,23 +324,15 @@ fi
 #Operation 8
 if [ $Operation == 8 ]
 then
-  clear
-  figlet WIFI-RELOADED
-  echo "--------------------------------------------------------------------------------"
+  reset
   read -p "Crack a Wireless Password with Aircrack-ng? [yes/no]" cpstart
   if [ $cpstart == yes ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "Wordlist Path: " wrdList
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "Handshake CAP File Path: " hscFile
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     echo "Press CTRL-C To Stop"
     echo "3"
     sleep 1
@@ -440,9 +349,7 @@ then
     fi
   elif  [ $cpstart == no ]
   then
-    clear
-    figlet WIFI-RELOADED
-    echo "--------------------------------------------------------------------------------"
+    reset
     read -p "Go Back? [yes/no]: " back
     if [ $back == yes ]
     then
@@ -454,8 +361,7 @@ fi
 #Full Auto
 if [ $Operation == 9 ]
 then
-  clear
-  figlet WIFI-RELOADED
+  cfiglet WIFI-RELOADED
   echo "--------------------------------------------------------------------------------"
   echo "Full Skiddie Mode Activating :-)"
   sleep 1
