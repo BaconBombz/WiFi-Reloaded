@@ -361,8 +361,7 @@ fi
 #Full Auto
 if [ $Operation == 9 ]
 then
-  cfiglet WIFI-RELOADED
-  echo "--------------------------------------------------------------------------------"
+  reset
   echo "Full Skiddie Mode Activating :-)"
   sleep 1
   ./Full-Auto

@@ -1,29 +1,25 @@
 #!/bin/bash
 
-clear
-figlet WIFI-RELOADED
-echo "--------------------------------------------------------------------------------"
+reset () {
+  clear
+  figlet WIFI-RELOADED
+  echo "--------------------------------------------------------------------------------"
+}
+
+reset
 echo "Full Auto Activated"
 sleep 1
-clear
-figlet WIFI-RELOADED
-echo "--------------------------------------------------------------------------------"
+reset
 airmon-ng
 echo "--------------------------------------------------------------------------------"
 read -p "Select The Wireless Interface You Want To Use: " monInterfacestart
-clear
-figlet WIFI-RELOADED
-echo "--------------------------------------------------------------------------------"
+reset
 airmon-ng start $monInterfacestart
-clear
-figlet WIFI-RELOADED
-echo "--------------------------------------------------------------------------------"
+reset
 airmon-ng
 echo "--------------------------------------------------------------------------------"
 read -p "What Is Your Monitor Interface: " monInterface
-clear
-figlet WIFI-RELOADED
-echo "--------------------------------------------------------------------------------"
+reset
 echo "Press CTRL-C To Stop"
 echo "3"
 sleep 1
@@ -36,13 +32,9 @@ echo "--------------------------------------------------------------------------
 read -p "What Is The BSSID: " bssid
 echo "--------------------------------------------------------------------------------"
 read -p "What Is The Channel: " channel
-clear
-figlet WIFI-reloaded
-echo "--------------------------------------------------------------------------------"
+reset
 read -p "Handshake CAP FIle Name: " fop
-clear
-figlet WIFI-RELOADED
-echo "--------------------------------------------------------------------------------"
+reset
 echo "Press CTRL-C To Stop"
 echo "3"
 sleep 1
