@@ -1,9 +1,9 @@
 # WiFi-Reloaded
-WiFi-Reloaded Is An Automated Wifi Hacking Tool. 
+WiFi-Reloaded Is An Automated Wifi Hacking Tool.
 
-WiFi-Reloaded Uses Airmon-ng, Airodump-ng, Aireplay-ng, and Aircrack-ng. 
+WiFi-Reloaded Uses Airmon-ng, Airodump-ng, Aireplay-ng, and Aircrack-ng.
 
-Simply Lauch, Choose, and Execute. 
+Simply Lauch, Choose, and Execute.
 
 # WARNING, I AM NOT RESPONSIBLE FOR HOW YOU USE THIS TOOL!
 
@@ -17,4 +17,4 @@ Simply Lauch, Choose, and Execute.
 #./install.sh
 
 # Running the Program
-Run the program with "wifi-reloaded" in terminal.
+Run the program with "./wifi-reloaded" in terminal.
