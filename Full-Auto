@@ -59,6 +59,7 @@ sleep 1
 echo "1"
 sleep 1
 aircrack-ng -w $wordlist $cappath
+airmon-ng $monInterface stop
 echo "--------------------------------------------------------------------------------"
 read -p "Go Back? [yes/no]: " back
 if [ $back == yes ]
