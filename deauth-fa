@@ -12,5 +12,4 @@ then
 elif [ $geths == no ]
 then
   ./deauth-fa
-  exit
 fi
