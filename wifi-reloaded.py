@@ -30,7 +30,9 @@ def title():
 
 #Menus
 def mainMenu():
-    print("") #TODO: Add Menu Options
+    title()
+    print("1) Change Interface Mode") #TODO: Add Menu Options
+    print("2) Monitor Wireless Networks")
 
 #Main
 def main():
