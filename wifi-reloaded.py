@@ -1,5 +1,6 @@
 #Program Details
 #OS: Linux
+#Version 1.0
 
 #Import Global Libraries
 import sys
