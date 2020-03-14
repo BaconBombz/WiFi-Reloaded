@@ -16,12 +16,12 @@ interface = ""
 #Functions
 def checkAndRunOption(maxOption, menu, option, optionPairs):
     if (option.isdigit()):
-        if (int(option) >= 0 and int(option) <= maxOption):      #Check Option Is Number, Check If It Is An Valid Option
+        if (int(option) >= 0 and int(option) <= maxOption):     #Check Option Is Number, Check If It Is An Valid Option
             optionPairs[int(option)]()                          #Run Coresponding Menu Based Off optionPairs
         else:
             menu()                                              #If Not A Valid Option Run Re-Run Menu
     else:
-        menu()
+        menu()                                                  #If Option Not A Number Re-Run Menu
         
 
 def exitProgram():
@@ -46,26 +46,6 @@ def setInterfaceManaged():
     mainMenu()
 
 #Menus
-def mainMenu(option=""):
-    optionPairs = {
-                    1:changeInterfaceMode,
-                    2:monitorWirelessNetworks,
-                    0:exitProgram
-                  }
-
-    if (option == ""):
-        BBSTDLib.title("Wifi-Reloaded")
-        print("Current Interface: {}".format(interface))
-        BBSTDLib.longLine()
-
-        print("1) Change Interface Mode") #TODO: Add Menu Options
-        print("2) Monitor Wireless Networks")
-        print("0) Exit")
-        BBSTDLib.longLine()
-        option = input("Option: ")
-
-    checkAndRunOption(2, mainMenu, option, optionPairs)
-
 def changeInterfaceMode():
     global interface
 
@@ -85,6 +65,26 @@ def changeInterfaceMode():
     option = input("[Main Menu/Change Interface Mode] Option: ")
 
     checkAndRunOption(2, changeInterfaceMode, option, optionPairs)
+
+def mainMenu(option=""):
+    optionPairs = {
+                    1:changeInterfaceMode,
+                    2:monitorWirelessNetworks,
+                    0:exitProgram
+                  }
+
+    if (option == ""):
+        BBSTDLib.title("Wifi-Reloaded")
+        print("Current Interface: {}".format(interface))
+        BBSTDLib.longLine()
+
+        print("1) Change Interface Mode") #TODO: Add Menu Options
+        print("2) Monitor Wireless Networks")
+        print("0) Exit")
+        BBSTDLib.longLine()
+        option = input("Option: ")
+
+    checkAndRunOption(2, mainMenu, option, optionPairs)
 
 def monitorWirelessNetworks():
     print("works")
