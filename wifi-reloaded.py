@@ -14,16 +14,15 @@ import BBSTDLib     #Standard Library In All My Programs
 interface = ""
 
 #Functions
-def checkAndRunOption(menu, option, optionPairs):
-    try: #]-----------------|: Check If User Option Is Number If Not Re-Run Menu
-        int(option) #]------|
-    except ValueError: #]---|
-        menu() #]-------|
-    else:
-        if (int(option) >= 0):           #Check Option Is Number, Check If It Is An Valid Option
-            optionPairs[int(option)]()   #Run Coresponding Menu Based Off optionPairs
+def checkAndRunOption(maxOption, menu, option, optionPairs):
+    if (option.isdigit()):
+        if (int(option) >= 0 and int(option) <= maxOption):      #Check Option Is Number, Check If It Is An Valid Option
+            optionPairs[int(option)]()                          #Run Coresponding Menu Based Off optionPairs
         else:
-            menu()                   #If Not A Valid Option Run Re-Run Menu
+            menu()                                              #If Not A Valid Option Run Re-Run Menu
+    else:
+        menu()
+        
 
 def exitProgram():
     BBSTDLib.clearScreen()
@@ -65,7 +64,7 @@ def mainMenu(option=""):
         BBSTDLib.longLine()
         option = input("Option: ")
 
-    checkAndRunOption(mainMenu, option, optionPairs)
+    checkAndRunOption(2, mainMenu, option, optionPairs)
 
 def changeInterfaceMode():
     global interface
@@ -85,7 +84,7 @@ def changeInterfaceMode():
     BBSTDLib.longLine()
     option = input("[Main Menu/Change Interface Mode] Option: ")
 
-    checkAndRunOption(changeInterfaceMode, option, optionPairs)
+    checkAndRunOption(2, changeInterfaceMode, option, optionPairs)
 
 def monitorWirelessNetworks():
     print("works")
