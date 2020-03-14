@@ -22,7 +22,7 @@ def getInterface():
     return interface
 
 #Menus
-def mainMenu():
+def mainMenu(option=""):
     BBSTDLib.title("Wifi-Reloaded")
     print("Current Interface: {}".format(interface))
     BBSTDLib.longLine()
@@ -30,6 +30,8 @@ def mainMenu():
     print("2) Monitor Wireless Networks")
     BBSTDLib.longLine()
     option = input("Option: ")
+
+    
 
 
 def changeInterfaceMode():
@@ -42,7 +44,7 @@ def changeInterfaceMode():
 #Main
 def main():
     global interface
-    
+
     BBSTDLib.checkRoot()
 
     BBSTDLib.title("Wifi-Reloaded")
