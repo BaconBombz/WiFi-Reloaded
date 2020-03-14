@@ -1,48 +1,37 @@
 #Program Details
 #OS: Linux
 
-#Import Libraries
-import os
-import subprocess
+#Import Global Libraries
 import sys
+
+#Import Local Libraries
+sys.path.append('lib/')
+import BBSTDLib
 
 #Global Variables
 
 
 #Functions
-def clearScreen():
-    subprocess.run("clear", shell=True)
-
 def getInterface():
     print("Please Choose A Wireless Interface:")
     subprocess.run("sudo airmon-ng", shell=True) #List Interfaces
-    longLine()
+    BBSTDLib.longLine()
     interface = input("Interface: ")
     return interface
 
-def longLine():
-    columns, rows = os.get_terminal_size(0)
-    print(columns * "-")
-
-def title():
-    clearScreen()
-    subprocess.run("figlet WiFi-Reloaded", shell=True)
-    longLine()
-
 #Menus
 def mainMenu():
-    title()
+    BBSTDLib.title("Wifi-Reloaded")
     print("1) Change Interface Mode") #TODO: Add Menu Options
     print("2) Monitor Wireless Networks")
 
 #Main
 def main():
-    if (not os.geteuid()==0): #]-------------------|: Check If Program Has Root Privileges
-        sys.exit("Please Run As Root ~ Sudo") #]---|
+    BBSTDLib.checkRoot()
 
-    title()
+    BBSTDLib.title("Wifi-Reloaded")
     print("By BaconBombz | Version 1.0")
-    longLine()
+    BBSTDLib.longLine()
     
 
 
