@@ -15,7 +15,7 @@ interface = ""
 
 #Functions
 def checkAndRunOption(menu, option, optionPairs):
-    try: #]-----------------|: Check If User Option Is Number If Not Re-Run mainMenu
+    try: #]-----------------|: Check If User Option Is Number If Not Re-Run Menu
         int(option) #]------|
     except ValueError: #]---|
         menu() #]-------|
@@ -23,7 +23,7 @@ def checkAndRunOption(menu, option, optionPairs):
         if (int(option) >= 0):           #Check Option Is Number, Check If It Is An Valid Option
             optionPairs[int(option)]()   #Run Coresponding Menu Based Off optionPairs
         else:
-            menu()                   #If Not A Valid Option Run Re-Run mainMenu
+            menu()                   #If Not A Valid Option Run Re-Run Menu
 
 def exitProgram():
     BBSTDLib.clearScreen()
@@ -61,6 +61,7 @@ def mainMenu(option=""):
 
         print("1) Change Interface Mode") #TODO: Add Menu Options
         print("2) Monitor Wireless Networks")
+        print("0) Exit")
         BBSTDLib.longLine()
         option = input("Option: ")
 
