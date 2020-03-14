@@ -12,10 +12,10 @@ def clearScreen():
     subprocess.run("clear", shell=True)
 
 def longLine():
-    columns, rows = os.get_terminal_size(0)
-    print(columns * "-")
+    columns, rows = os.get_terminal_size(0) #]---|: Get Length Of Terminal And Print Divider
+    print(columns * "-") #]----------------------|
 
 def title(text):
     clearScreen()
-    subprocess.run("figlet {}".format(text), shell=True)
+    subprocess.run("figlet {}".format(text), shell=True)    #Print ASCII Text
     longLine()
