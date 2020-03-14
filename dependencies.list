@@ -1,2 +1,7 @@
 Linux:
     Figlet
+    Aircrack-ng
+
+Libraries:
+    Personal:
+        BBSTDLib.py
