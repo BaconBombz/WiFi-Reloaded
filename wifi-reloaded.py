@@ -6,7 +6,7 @@
 import sys
 
 #Import Local Libraries
-sys.path.append('lib/')
+sys.path.append('lib/')     #Add lib Folder To Runtime For Imports
 import BBSTDLib
 
 #Global Variables
@@ -15,7 +15,7 @@ import BBSTDLib
 #Functions
 def getInterface():
     print("Please Choose A Wireless Interface:")
-    subprocess.run("sudo airmon-ng", shell=True) #List Interfaces
+    subprocess.run("sudo airmon-ng", shell=True)    #List Interfaces
     BBSTDLib.longLine()
     interface = input("Interface: ")
     return interface
