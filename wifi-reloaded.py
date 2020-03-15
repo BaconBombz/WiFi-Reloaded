@@ -122,7 +122,7 @@ def monitorWirelessNetworks():
     print("Current Interface: {}".format(interface))
     BBSTDLib.longLine()
     print("Opening Second Window...")
-    subprocess.run("sudo xterm -hold -e 'Press Ctrl-C To Stop; sudo airodump-ng start {}'".format(interface), shell=True)
+    subprocess.run("sudo xterm -hold -e 'echo Press Ctrl-C To Stop; sudo airodump-ng start {}'".format(interface), shell=True)
 
 
 
