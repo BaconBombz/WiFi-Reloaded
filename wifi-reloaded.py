@@ -2,16 +2,32 @@
 #OS: Linux
 #Version 1.0
 
+
+
+
+
 #Import Global Libraries
 import subprocess
 import sys
+
+
+
+
 
 #Import Local Libraries
 sys.path.append('lib/')     #Add lib Folder To Runtime For Imports
 import BBSTDLib     #Standard Library In All My Programs
 
+
+
+
+
 #Global Variables
 interface = ""
+
+
+
+
 
 #Functions
 def checkAndRunOption(maxOption, menu, option, optionPairs):
@@ -22,11 +38,14 @@ def checkAndRunOption(maxOption, menu, option, optionPairs):
             menu()                                              #If Not A Valid Option Run Re-Run Menu
     else:
         menu()                                                  #If Option Not A Number Re-Run Menu
-        
+
+
 
 def exitProgram():
     BBSTDLib.clearScreen()
     sys.exit()
+
+
 
 def getInterface():
     print("Please Choose A Wireless Interface:")
@@ -35,15 +54,23 @@ def getInterface():
     interface = input("Interface: ")
     return interface
 
+
+
 def setInterfaceMonitor():
     BBSTDLib.title("WiFi-Reloaded")
     subprocess.run("sudo airmon-ng start {}".format(interface), shell=True)
     mainMenu()
 
+
+
 def setInterfaceManaged():
     BBSTDLib.title("WiFi-Reloaded")
     subprocess.run("sudo airmon-ng stop {}".format(interface), shell=True)
     mainMenu()
+
+
+
+
 
 #Menus
 def changeInterfaceMode():
@@ -66,6 +93,8 @@ def changeInterfaceMode():
 
     checkAndRunOption(2, changeInterfaceMode, option, optionPairs)
 
+
+
 def mainMenu(option=""):
     optionPairs = {
                     1:changeInterfaceMode,
@@ -86,8 +115,17 @@ def mainMenu(option=""):
 
     checkAndRunOption(2, mainMenu, option, optionPairs)
 
+
+
 def monitorWirelessNetworks():
-    print("works")
+    BBSTDLib.title("WiFi-Reloaded")
+    print("Current Interface: {}".format(interface))
+    BBSTDLib.longLine()
+    print("Opening Second Window...")
+    subprocess.run("xterm -hold -e 'sudo airmon-ng start {}'".format(interface), shell=True)
+
+
+
 
 #Main
 def main():
@@ -102,6 +140,8 @@ def main():
 
     mainMenu()
     
+
+
 
 
 #Execute Main
